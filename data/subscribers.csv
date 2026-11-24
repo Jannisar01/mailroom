@@ -1,0 +1,25 @@
+name,email,group,joined_on,consent
+Ada Park,ada.park@example.com,green,2026-01-14,yes
+Ben Ortiz,ben.ortiz@example.com,green,2026-02-03,yes
+Chloe Nguyen,chloe.nguyen@example.com,green,2026-03-22,no
+Dev Rao,dev.rao@example.com,green,2026-05-09,yes
+Elif Kaya,elif.kaya@example.com,green,2026-10-21,yes
+Femi Ade,femi.ade@example.com,green,2026-11-02,yes
+Gia Romano,gia.romano@example.com,green,2026-07-30,yes
+Hugo Lind,hugo.lind@example.com,green,2026-10-20,yes
+Ines Duarte,ines.duarte@example.com,black,2026-01-28,yes
+Jonas Berg,jonas.berg@example.com,black,2026-04-17,yes
+Kira Sato,kira.sato@example.com,black,2026-06-05,no
+Liam Walsh,liam.walsh@example.com,black,2026-10-29,yes
+Maya Cohen,maya.cohen@example.com,black,2026-11-15,yes
+Nils Eriksson,nils.eriksson@example.com,black,2026-08-12,yes
+Omar Haddad,omar.haddad@example.com,black,2026-09-19,yes
+Priya Shah,priya.shah@example.com,black,2026-02-26,yes
+Quinn Byrne,quinn.byrne@example.com,oolong,2026-03-03,no
+Rosa Vidal,rosa.vidal@example.com,oolong,2026-11-20,yes
+Sami Okafor,sami.okafor@example.com,oolong,2026-05-27,yes
+Tara Quinn,tara.quinn@example.com,oolong,2026-06-18,yes
+Uma Iyer,uma.iyer@example.com,oolong,2026-11-08,yes
+Viktor Novak,viktor.novak@example.com,oolong,2026-09-01,no
+Wen Li,wen.li@example.com,oolong,2026-10-25,yes
+Yara Haddad,yara.haddad@example.com,oolong,2026-07-07,yes
