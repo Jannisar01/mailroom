@@ -7,11 +7,13 @@ import os
 import sys
 from datetime import date
 from pathlib import Path
+from typing import Any, cast
 
 import httpx
 
 from mailroom.dates import next_send, window_start
 from mailroom.errors import MailroomError
+from mailroom.guard import check_tool_call
 from mailroom.plan import build_plan
 from mailroom.rules import check_issue
 from mailroom.sender import DEFAULT_KEY, DEFAULT_URL, get_email, send_plan
@@ -92,6 +94,19 @@ def cmd_status(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_guard(args: argparse.Namespace) -> int:
+    """Called by a Claude Code hook. Exit 2 blocks the tool call and shows Claude the reason."""
+    try:
+        call = json.loads(sys.stdin.read() or "{}")
+    except json.JSONDecodeError as e:
+        print(f"mailroom guard: the hook input is not JSON ({e})", file=sys.stderr)
+        return 2
+    problems = check_tool_call(cast(dict[str, Any], call)) if isinstance(call, dict) else []
+    for p in problems:
+        print(f"mailroom guard refused: {p}", file=sys.stderr)
+    return 2 if problems else 0
+
+
 def build_parser(today: date) -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="mailroom", description="Count, check and send the Steep Club newsletter.")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -132,6 +147,8 @@ def build_parser(today: date) -> argparse.ArgumentParser:
     p.add_argument("id")
     p.set_defaults(func=cmd_status)
 
+    p = sub.add_parser("guard", help="check a Claude Code hook's tool call from standard input")
+    p.set_defaults(func=cmd_guard)
     return parser
 
 
