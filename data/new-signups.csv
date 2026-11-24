@@ -1,0 +1,9 @@
+name,email,group,joined_on,consent
+Zoe Marsh,zoe.marsh@example.com,green,2026-11-21,yes
+Arjun Mehta,arjun.mehta.example.com,black,2026-11-21,yes
+Bea Laurent,bea.laurent@example.com,puerh,2026-11-22,yes
+Cal Doyle,cal.doyle@example.com,oolong,2026-02-30,yes
+,dana.fox@example.com,green,2026-11-23,yes
+Eli Grant,eli.grant@example.com,black,2026-11-23,maybe
+Fern Ito,fern.ito@example.com,oolong,2026-11-24,no
+Gus Ward,gus.ward@example.com,green,2026-11-24,yes
