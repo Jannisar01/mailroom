@@ -131,3 +131,8 @@ def test_never_more_than_the_concurrency_limit_at_once() -> None:
     results = asyncio.run(send_plan(plan, URL, "k", concurrency=3, client=client))
     assert len(results) == 20 and all("id" in r for r in results)
     assert most == 3
+
+
+def test_zero_concurrency_is_refused_instead_of_hanging() -> None:
+    with pytest.raises(SendError, match="concurrency must be 1 or more"):
+        asyncio.run(send_plan({"messages": []}, URL, "k", concurrency=0))

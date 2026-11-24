@@ -98,6 +98,8 @@ async def send_plan(
 ) -> list[dict[str, str]]:
     """Send every message in the plan, at most `concurrency` at a time. One failure does not stop the rest."""
     check_practice_server(url)
+    if concurrency < 1:
+        raise SendError(f"concurrency must be 1 or more, got {concurrency}")
     messages: list[dict[str, str]] = plan["messages"]
     for m in messages:  # guard two: check every recipient before sending any
         problem = recipient_problem(m["to"])
