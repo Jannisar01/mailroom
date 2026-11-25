@@ -16,3 +16,8 @@ jobs:
         run: uv run pytest
       - name: types
         run: uv run pyright
+      - name: issues
+        run: |
+          ok=0
+          for f in issues/*.md; do echo "$f"; uv run mailroom check-issue "$f" || ok=1; done
+          exit $ok
